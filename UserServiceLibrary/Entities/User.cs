@@ -5,6 +5,7 @@ namespace UserServiceLibrary.Entities
     /// <summary>
     /// User entity class, contains data about user 
     /// </summary>
+    [Serializable]
     public class User
     {
         /// <summary>

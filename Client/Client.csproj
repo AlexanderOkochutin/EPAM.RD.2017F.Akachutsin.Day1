@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27DA597C-1D3E-4EC0-96CB-C10C11859803}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{E00B1764-F7DE-4ECA-99E9-CD6E8CDFABD6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UserServiceLibrary</RootNamespace>
-    <AssemblyName>UserServiceLibrary</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,9 +22,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\UserServiceLibrary.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,21 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomExceptions\NotInitializedException.cs" />
-    <Compile Include="CustomExceptions\AlreadyExistException.cs" />
-    <Compile Include="CustomExceptions\NotExistException.cs" />
-    <Compile Include="CustomExceptions\NotMasterException.cs" />
-    <Compile Include="CustomExceptions\UserServiceException.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IAddRemoveNotifier.cs" />
-    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AddRemoveNotifier.cs" />
-    <Compile Include="Services\UserEventArgs.cs" />
-    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Documentation\Documentation.chm" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

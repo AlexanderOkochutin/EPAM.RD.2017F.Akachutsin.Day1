@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27DA597C-1D3E-4EC0-96CB-C10C11859803}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{CBD9A9E6-FC31-4EEF-A6AE-88ED75257ADC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UserServiceLibrary</RootNamespace>
-    <AssemblyName>UserServiceLibrary</AssemblyName>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,9 +22,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\UserServiceLibrary.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,21 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomExceptions\NotInitializedException.cs" />
-    <Compile Include="CustomExceptions\AlreadyExistException.cs" />
-    <Compile Include="CustomExceptions\NotExistException.cs" />
-    <Compile Include="CustomExceptions\NotMasterException.cs" />
-    <Compile Include="CustomExceptions\UserServiceException.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IAddRemoveNotifier.cs" />
-    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="config\MasterSlaveCollection.cs" />
+    <Compile Include="config\MasterSlaveElement.cs" />
+    <Compile Include="config\StartupMasterSlaveConfigSection.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AddRemoveNotifier.cs" />
-    <Compile Include="Services\UserEventArgs.cs" />
-    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Documentation\Documentation.chm" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserServiceLibrary\UserServiceLibrary.csproj">
+      <Project>{27da597c-1d3e-4ec0-96cb-c10c11859803}</Project>
+      <Name>UserServiceLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
